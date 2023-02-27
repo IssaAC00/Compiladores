@@ -2,7 +2,7 @@
 #define _LEXER_
 
 enum token {numero, suma, resta, multiplicacion,division,potencia,pi,e,logaritmo,seno,coseno,
-exp,parentesis_izq,parentesis_der,fin_de_archivo,error};
+exp,parentesis_izq,parentesis_der,fin_de_archivo,error, fin_de_linea};
 
 typedef enum token token_t;
 
