@@ -26,6 +26,10 @@ int automata [][25] ={
 
 int alfabeto [] = {};
 
+const size_t cantCaracteres = 25;
+const size_t cantEstados = 18;
+size_t estado = 0;
+
 enum token lexer(void){
     char c;
     while ((c = getc(stdin))!=EOF)
