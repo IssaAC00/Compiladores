@@ -3,8 +3,13 @@
 #include "lexer.c"
 
 // en terminal: echo 5+6|main.exe
-int main(void){
+
+int calc(void){
     lexer();
     printf("Se leyeron %ld caracteres\n",caracteres_leidos);
+}
+
+int main(void){
+    calc();
     return 0;
 }
