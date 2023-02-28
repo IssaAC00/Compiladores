@@ -5,7 +5,15 @@
 // en terminal: echo 5+6|main.exe
 
 int calc(void){
-    lexer();
+    token_t token;
+    while ((token = lexer()) != fin_de_archivo){
+        switch (token)
+        {
+        case numero:
+            printf("numero");
+            break;
+        }
+    }
     printf("Se leyeron %ld caracteres\n",caracteres_leidos);
 }
 

@@ -29,6 +29,16 @@ int alfabeto [] = {'0', '1', '2', '3', '4', '5', '6','7','8','9','.','(',')','+'
 const size_t cantCaracteres = 25;
 const size_t cantEstados = 18;
 
+size_t columna(char c){
+    size_t i;
+    for (int i=0; i<cantCaracteres; i++){
+        if (c ==alfabeto[i]){
+            return i;
+        }
+    }
+
+}
+
 
 /* Funcion que hace la lectura e identificación de los tokens que entran por consola*/
 
@@ -70,9 +80,10 @@ enum token lexer(void){
             estadotem = automata[estado][columna(p)];
             if (estadotem == 7)
                 return pi;
-            else:
+            else{
                 ungetc(c,stdin);
                 return error;
+            }
         case 7:
             ungetc(c,stdin);
             return error;
