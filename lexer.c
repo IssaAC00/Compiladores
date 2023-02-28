@@ -51,6 +51,7 @@ enum token lexer(void){
     {
         caracteres_leidos++;
         estado = automata[estado][columna(c)];
+        printf("Estado: %ld \n",estado);
         switch (estado)
         {
         case 4:
@@ -75,7 +76,7 @@ enum token lexer(void){
             return multiplicacion;
         case 15:
             return e;
-        case 6:
+        case 6: //pi
             p = getc(stdin);
             estadotem = automata[estado][columna(p)];
             if (estadotem == 7)
