@@ -46,6 +46,7 @@ int calc(void){
             printf("e\n");
         case fin_de_linea:
             printf("Fin linea\n");
+            exit (-1);
             break;
         case pi:
             printf("pi\n");
@@ -62,6 +63,7 @@ int calc(void){
 }
 
 int main(void){
+    printf("Ingrese una expresion: ");
     calc();
     return 0;
 }
