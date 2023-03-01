@@ -10,7 +10,7 @@ int automata [][25] ={
 	{2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5},
 	{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 	{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
-	{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
+	{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	0,	0,	0,	0,	0},
 	{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 	{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 	{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
@@ -28,6 +28,7 @@ int alfabeto [] = {'0', '1', '2', '3', '4', '5', '6','7','8','9','.','(',')','+'
 
 const size_t cantCaracteres = 25;
 const size_t cantEstados = 18;
+size_t estadoAnterior = 0;
 
 size_t columna(char c){
     size_t i;
@@ -51,6 +52,7 @@ enum token lexer(void){
     {
         caracteres_leidos++;
         estado = automata[estado][columna(c)];
+        printf("C: %ld \n",c);
         printf("Estado: %ld \n",estado);
         switch (estado)
         {
@@ -77,15 +79,20 @@ enum token lexer(void){
         case 15:
             return e;
         case 6: //pi
-            p = getc(stdin);
-            estadotem = automata[estado][columna(p)];
-            if (estadotem == 7)
-                return pi;
-            else{
-                ungetc(c,stdin);
-                return error;
-            }
+            estadoAnterior = 6;
+            break;
+            //estadotem = automata[estado][columna(p)];
+            // if (estadotem == 7)
+            //     return pi;
+            // else{
+            //     ungetc(c,stdin);
+            //     return error;
+            // }
         case 7:
+            if(estadoAnterior==6){
+                estadoAnterior = 0;
+                return pi;
+            }
             ungetc(c,stdin);
             return error;
         case 16:

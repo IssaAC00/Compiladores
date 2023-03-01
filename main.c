@@ -44,7 +44,6 @@ int calc(void){
             break;
         case e:
             printf("e\n");
-            break;
         case fin_de_linea:
             printf("Fin linea\n");
             break;
