@@ -19,7 +19,7 @@ typedef enum token token_t;
 
 
 extern size_t caracteres_leidos; 
-extern tipoToken lexer(void);
+extern tipoToken getToken(void);
 
 
 

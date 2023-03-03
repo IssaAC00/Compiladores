@@ -43,9 +43,8 @@ size_t columna(char c){
 
 /* Funcion que hace la lectura e identificación de los tokens que entran por consola*/
 
-tipoToken lexer(void){
+tipoToken getToken(void){
     char c;
-    char p;
     size_t estado = 0;
     size_t estadotem = 0;
     tipoToken tokenT;
@@ -123,5 +122,9 @@ tipoToken lexer(void){
     tokenT.token = fin_de_archivo;
     tokenT.lexema[tokenT.lexemaLen] = '\0';
     return tokenT;
+    
+}
+
+void retToken(tipoToken token){
     
 }

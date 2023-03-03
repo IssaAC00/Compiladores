@@ -7,7 +7,7 @@
 
 int calc(void){
     tipoToken tokenT;
-    while ((tokenT = lexer()).token != fin_de_archivo){
+    while ((tokenT = getToken()).token != fin_de_archivo){
         switch (tokenT.token)
         {
         case numero:
