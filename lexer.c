@@ -43,65 +43,85 @@ size_t columna(char c){
 
 /* Funcion que hace la lectura e identificación de los tokens que entran por consola*/
 
-enum token lexer(void){
+tipoToken lexer(void){
     char c;
     char p;
     size_t estado = 0;
     size_t estadotem = 0;
+    tipoToken tokenT;
+    tokenT.lexemaLen = 0;
     while ((c = getc(stdin))!=EOF)
     {
         caracteres_leidos++;
+        tokenT.lexema[tokenT.lexemaLen++] = c;
+        tokenT.lexema[tokenT.lexemaLen] = '\0';
         estado = automata[estado][columna(c)];
-        printf("C: %ld \n",c);
-        printf("Estado: %ld \n",estado);
+       // printf("C: %ld \n",c);
+       // printf("Estado: %ld \n",estado);
         switch (estado)
         {
         case 4:
             ungetc(c,stdin);
-            return numero;
+            tokenT.token = numero;
+            tokenT.lexema[--tokenT.lexemaLen] = '\0';
+            return tokenT;
          case 5:
             ungetc(c,stdin);
-            return error;
+            tokenT.token = error;
+            tokenT.lexema[--tokenT.lexemaLen] = '\0';
+            return tokenT;
          case 8:
-            return parentesis_izq;
+            tokenT.token = parentesis_izq;
+            return tokenT;
+            
         case 9:
-            return parentesis_der;
+            tokenT.token = parentesis_der;
+            return tokenT;
         case 10:
-            return suma;
+            tokenT.token = suma;
+            return tokenT;
         case 11:           
-            return resta;
+            tokenT.token = resta;
+            return tokenT;
         case 12:
-            return division;
+            tokenT.token = division;
+            return tokenT;
         case 13:
-            return potencia;
+            tokenT.token = potencia;
+            return tokenT;
         case 14:
-            return multiplicacion;
+            tokenT.token = multiplicacion;
+            return tokenT;
         case 15:
-            return e;
-        case 6: //pi
+            tokenT.token = e;
+            return tokenT;
+        case 6: //p
             estadoAnterior = 6;
             break;
-            //estadotem = automata[estado][columna(p)];
-            // if (estadotem == 7)
-            //     return pi;
-            // else{
-            //     ungetc(c,stdin);
-            //     return error;
-            // }
         case 7:
             if(estadoAnterior==6){
                 estadoAnterior = 0;
-                return pi;
+                tokenT.token = pi;
+                return tokenT;
             }
-            ungetc(c,stdin);
-            return error;
+            else{
+                ungetc(c,stdin);
+                tokenT.token = error;
+                return tokenT;
+            }
+
         case 16:
-            return fin_de_linea;
+           tokenT.token = fin_de_linea;
+           return tokenT;
         case 17:
-            return error;
+            tokenT.token = error;
+            return tokenT;
        
         }
     }
-    return fin_de_archivo;
+
+    tokenT.token = fin_de_archivo;
+    tokenT.lexema[tokenT.lexemaLen] = '\0';
+    return tokenT;
     
 }

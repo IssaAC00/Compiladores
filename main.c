@@ -2,15 +2,16 @@
 #include <stdlib.h>
 #include "lexer.c"
 
+
 // en terminal: echo 5+6|main.exe
 
 int calc(void){
-    token_t token;
-    while ((token = lexer()) != fin_de_archivo){
-        switch (token)
+    tipoToken tokenT;
+    while ((tokenT = lexer()).token != fin_de_archivo){
+        switch (tokenT.token)
         {
         case numero:
-            printf("numero\n");
+            printf("numero %s\n",tokenT.lexema);
             break;
 
         case suma:
@@ -63,7 +64,7 @@ int calc(void){
 }
 
 int main(void){
-    printf("Ingrese una expresion: ");
+   // printf("Ingrese una expresion: ");
     calc();
     return 0;
 }
