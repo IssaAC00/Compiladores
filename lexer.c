@@ -3,6 +3,7 @@
 
 size_t caracteres_leidos = 0;
 
+/*Automata con todos los estados permitidos y sus respectivos estados de aceptación*/
 int automata [][25] ={																									
 	{1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	3,	8,	9,	10,	11,	14,	12,	13,	6,	7,	15,	0,	0,	16,	17},
 	{1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	2,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4},
@@ -30,6 +31,7 @@ const size_t cantCaracteres = 25;
 const size_t cantEstados = 18;
 size_t estadoAnterior = 0;
 
+/*Busca el caracter en el alfabeto para  posteriormente relacionarlo con el automata*/
 size_t columna(char c){
     size_t i;
     for (int i=0; i<cantCaracteres; i++){
