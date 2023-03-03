@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "lexer.c"
 
-
 // en terminal: echo 5+6|main.exe
+/*Con ayuda del lexer analiza la cadena que entra por cosola */
 
 int calc(void){
     tipoToken tokenT;
@@ -11,7 +11,7 @@ int calc(void){
         switch (tokenT.token)
         {
         case numero:
-            printf("numero %s\n",tokenT.lexema);
+           printf("numero %s\n",tokenT.lexema);
             break;
 
         case suma:
@@ -64,7 +64,7 @@ int calc(void){
 }
 
 int main(void){
-   // printf("Ingrese una expresion: ");
+    printf("Ingrese una expresion: ");
     calc();
     return 0;
 }
