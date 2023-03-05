@@ -5,14 +5,17 @@ size_t caracteres_leidos = 0;
 
 /*Automata con todos los estados permitidos y sus respectivos estados de aceptación*/
 																															
-	int automata [][30]={																														
+																															
+																															
+	int automata [][30] = {																														
 		{1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	3,	8,	9,	10,	11,	14,	12,	13,	6,	7,	15,	0,	0,	16,	17,	18,	19,	20,	21,	22},
 		{1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	2,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4},
 		{2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4},
 		{2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5,	5},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
-		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,  0,	0},
+		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
+		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	20,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
@@ -22,15 +25,14 @@ size_t caracteres_leidos = 0;
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
-		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
-		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
-		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
-		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
+		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	18,	0,	0,	0,	0},
+		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	19,	0,	0,	0},
+		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	7,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22,	22},
 	};																														
-																							
+																		
 
 int alfabeto [] = {'0', '1', '2', '3', '4', '5', '6','7','8','9','.','(',')','+','-','*','/','^','p','i','e',' ', '\t' , '\n','c', 'o', 's', 'n', 'x'};
 
@@ -80,8 +82,7 @@ tipoToken getToken(void){
             return tokenT;
          case 8:
             tokenT.token = parentesis_izq;
-            return tokenT;
-            
+            return tokenT;          
         case 9:
             tokenT.token = parentesis_der;
             return tokenT;
@@ -106,18 +107,64 @@ tipoToken getToken(void){
         case 6: //p
             estadoAnterior = 6;
             break;
-        case 7:
+        case 7: // i de pi
             if(estadoAnterior==6){
                 estadoAnterior = 0;
                 tokenT.token = pi;
                 return tokenT;
             }
-            else{
+            if (estadoAnterior==19){ // i de seno
+                estadoAnterior = 19;
+                break;
+            }
+            else{// i de logaritmo
+                estadoAnterior = 7;
+                break;
+            }
+        case 17: //c
+            estadoAnterior = 17;
+            break;
+        case 18://o
+            if (estadoAnterior==17){
+                estadoAnterior = 18;
+                printf("se tomada\n");
+                break;
+            }
+            else {
                 ungetc(c,stdin);
+                printf("error despues de la c\n");
                 tokenT.token = error;
                 return tokenT;
             }
-
+        case 19: //s
+           if(estadoAnterior==18){
+                estadoAnterior = 0;
+                tokenT.token = coseno;
+                printf("se toma el s bien\n");
+                return tokenT;
+            }
+            else{ //s de seno 
+                estadoAnterior = 19;
+                printf("S de seno\n");
+                break;
+            }
+        case 20://n de seno
+            if (estadoAnterior==19){
+                estadoAnterior = 0;
+                tokenT.token = seno;
+                return tokenT;
+            }
+            if(estadoAnterior==7){ // n de logaritmo
+                estadoAnterior = 0;
+                tokenT.token = logaritmo;
+                return tokenT;
+            }
+            else{ 
+                ungetc(c,stdin);
+                printf("error despues de la c\n");
+                tokenT.token = error;
+                return tokenT;
+            }
         case 16:
            tokenT.token = fin_de_linea;
            return tokenT;

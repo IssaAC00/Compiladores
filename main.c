@@ -17,7 +17,7 @@ int calc(void){
         case suma:
             printf("suma\n");
             break;
-        
+
         case resta:
             printf("resta\n");
             break;
@@ -37,22 +37,40 @@ int calc(void){
         case division:
             printf("div\n");
             break;
+
         case potencia:
             printf("potencia\n");
             break;
+
         case error:
             printf("error\n");
             break;
+
         case e:
             printf("e\n");
+            break;
+
         case fin_de_linea:
             printf("Fin linea\n");
             exit (-1);
             break;
+
         case pi:
             printf("pi\n");
             break;
 
+        case coseno:
+            printf("coseno\n");
+            break;
+
+        case seno: 
+            printf("seno\n");
+            break;
+
+        case logaritmo:
+            printf("logaritmo\n");
+            break;
+            
         case fin_de_archivo:
             printf("Fin archivo\n");
             break;
