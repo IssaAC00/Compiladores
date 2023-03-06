@@ -70,6 +70,8 @@ int calc(void){
         case logaritmo:
             printf("logaritmo\n");
             break;
+        case exp:
+            printf("exp\n");
             
         case fin_de_archivo:
             printf("Fin archivo\n");
