@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "lexer.h"
 
-size_t caracteres_leidos = 0;
-
 /*Automata con todos los estados permitidos y sus respectivos estados de aceptación*/
 																															
 	int automata [][30]={																														
@@ -60,7 +58,6 @@ tipoToken getToken(void){
     tokenT.lexemaLen = 0;
     while ((c = getc(stdin))!=EOF)
     {
-        caracteres_leidos++;
         tokenT.lexema[tokenT.lexemaLen++] = c;
         tokenT.lexema[tokenT.lexemaLen] = '\0';
         estado = automata[estado][columna(c)];
@@ -134,6 +131,11 @@ tipoToken getToken(void){
     
 }
 
-void retToken(tipoToken token){
-    
+//Devuelve el token al teclado
+void retToken(tipoToken tokenT){
+    //printf("Tam lexema: %ld\n",tokenT.lexemaLen);
+    //printf("Lexema: %s\n",tokenT.lexema);
+    for(long i = tokenT.lexemaLen-1;i>=0;i--){
+        ungetc(tokenT.lexema[i],stdin);
+    }
 }

@@ -1,6 +1,6 @@
 #ifndef _LEXER_
 #define _LEXER_
-
+#include <stdio.h>
 #define LenCadena 60
 
 enum token {numero, suma, resta, multiplicacion,division,potencia,pi,e,logaritmo,seno,coseno,
@@ -18,9 +18,8 @@ typedef struct tokenStruct tipoToken;
 typedef enum token token_t;
 
 
-extern size_t caracteres_leidos; 
 extern tipoToken getToken(void);
-
+extern void retToken(tipoToken tokenT);
 
 
 #endif
