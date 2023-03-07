@@ -1,11 +1,12 @@
 #include "pila.h"
 #include <ctype.h>
-//#include <math.h>
+#include <math.h>
 
 int Expr(void);
 int Term(void);
 int Factor(void);
 int Pot(void);
+
 
 
 int Expr(void){
@@ -73,7 +74,7 @@ int Factor(void){
                 printf("%s ",tokenT.lexema);
                 double v1 = pop();
                 double v2 = pop();
-                //push(pow(v1,v2));
+                push(pow(v1,v2));
 
                 return 1;               
             }
@@ -86,7 +87,47 @@ int Factor(void){
 }
 
 int Pot(void){
-    tipoToken tokenT = getToken();
+    tipoToken tokenT = getToken(); 
+
+    if(tokenT.token == seno){
+        if(Expr()){
+            printf("%s ",tokenT.lexema);
+            double v1 = pop();
+            push(sin(v1));
+            return 1;
+
+        }
+    }
+    if(tokenT.token == coseno){
+        if(Expr()){
+            printf("%s ",tokenT.lexema);
+            double v1 = pop();
+            push(cos(v1));
+            return 1;
+
+        }
+    }
+
+    if(tokenT.token == logaritmo){
+        if(Expr()){
+            printf("%s ",tokenT.lexema);
+            double v1 = pop();
+            push(log10(v1));
+            return 1;
+
+        }
+    }
+
+    if(tokenT.token == expo){
+        if(Expr()){
+            printf("%s ",tokenT.lexema);
+            double v1 = pop();
+            push(exp(v1));
+            return 1;
+
+        }
+    }
+
     if(tokenT.token == resta){
         if(Factor()){ //Deriva en factor?
           printf("%s ",tokenT.lexema);

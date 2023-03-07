@@ -131,7 +131,7 @@ tipoToken getToken(void){
         case 18://o
             if (estadoAnterior==17){
                 estadoAnterior = 18;
-                printf("se tomada\n");
+               // printf("se tomada\n");
                 break;
             }
             else {
@@ -144,7 +144,7 @@ tipoToken getToken(void){
            if(estadoAnterior==18){
                 estadoAnterior = 0;
                 tokenT.token = coseno;
-                printf("se toma el s bien\n");
+               // printf("se toma el s bien\n");
                 return tokenT;
             }
             else{ //s de seno 
