@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "lexer.h"
 
-size_t caracteres_leidos = 0;
-
 /*Automata con todos los estados permitidos y sus respectivos estados de aceptación*/
 																															
 																															
@@ -110,7 +108,7 @@ tipoToken getToken(void){
         case 6: //p
             if (estadoAnterior==21){
                 estadoAnterior = 0;
-                tokenT.token = exp;
+                tokenT.token = expo;
                 return tokenT;
             }
             estadoAnterior = 6;
@@ -137,7 +135,7 @@ tipoToken getToken(void){
         case 18://o
             if (estadoAnterior==17){
                 estadoAnterior = 18;
-                printf("se tomada\n");
+               // printf("se tomada\n");
                 break;
             }
             else {
@@ -150,7 +148,7 @@ tipoToken getToken(void){
            if(estadoAnterior==18){
                 estadoAnterior = 0;
                 tokenT.token = coseno;
-                printf("se toma el s bien\n");
+               // printf("se toma el s bien\n");
                 return tokenT;
             }
             else{ //s de seno 
@@ -210,6 +208,11 @@ tipoToken getToken(void){
     
 }
 
-void retToken(tipoToken token){
-    
+//Devuelve el token al teclado
+void retToken(tipoToken tokenT){
+    //printf("Tam lexema: %ld\n",tokenT.lexemaLen);
+    //printf("Lexema: %s\n",tokenT.lexema);
+    for(long i = tokenT.lexemaLen-1;i>=0;i--){
+        ungetc(tokenT.lexema[i],stdin);
+    }
 }
