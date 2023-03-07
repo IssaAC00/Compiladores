@@ -2,7 +2,7 @@
 #include "lexer.h"
 
 /*Automata con todos los estados permitidos y sus respectivos estados de aceptación*/
-																															
+size_t caracteres_leidos = 0;																															
 																															
 	int automata [][31]={																															
 		{1,	1,	1,	1,	1,	1,	1,	1,	1,	1,	3,	8,	9,	10,	11,	14,	12,	13,	6,	7,	15,	0,	0,	16,	17,	18,	19,	20,	21,	22,	23},
@@ -63,7 +63,6 @@ tipoToken getToken(void){
     tokenT.lexemaLen = 0;
     while ((c = getc(stdin))!=EOF)
     {
-        
         caracteres_leidos++;
         tokenT.lexema[tokenT.lexemaLen++] = c;
         tokenT.lexema[tokenT.lexemaLen] = '\0';
