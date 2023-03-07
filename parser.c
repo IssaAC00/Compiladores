@@ -1,5 +1,6 @@
 #include "pila.h"
 #include <ctype.h>
+//#include <math.h>
 
 int Expr(void);
 int Term(void);
@@ -64,11 +65,31 @@ int Term(void){
 }
 
 int Factor(void){
+
+    if(Pot()){
+        tipoToken tokenT = getToken();
+        if(tokenT.token == potencia){
+            if(Factor()){
+                printf("%s ",tokenT.lexema);
+                double v1 = pop();
+                double v2 = pop();
+                //push(pow(v1,v2));
+
+                return 1;               
+            }
+        }
+        retToken(tokenT);
+        return 1;
+    }
+    return 0;
+
+}
+
+int Pot(void){
     tipoToken tokenT = getToken();
     if(tokenT.token == resta){
         if(Factor()){ //Deriva en factor?
           printf("%s ",tokenT.lexema);
-          printf("pop: %lf",-pop());
           push(-pop()); //Simplemente cambiamos el signo y lo volvemos a meter a la pila
           return 1;
         }
@@ -86,6 +107,17 @@ int Factor(void){
     if(tokenT.token == numero){
         printf("%s ",tokenT.lexema);
         push(atof(tokenT.lexema));
+        return 1;
+    }
+
+    if(tokenT.token == pi){
+        printf("3.14 ");
+        push(3.1416);
+        return 1;
+    }
+    if(tokenT.token == e){
+        printf("2.71828 ");
+        push(2.71828);
         return 1;
     }
     return 0;

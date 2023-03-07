@@ -106,7 +106,7 @@ tipoToken getToken(void){
         case 6: //p
             if (estadoAnterior==21){
                 estadoAnterior = 0;
-                tokenT.token = exp;
+                tokenT.token = expo;
                 return tokenT;
             }
             estadoAnterior = 6;
