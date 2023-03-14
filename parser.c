@@ -14,7 +14,7 @@ int Expr(void){
         tipoToken tokenT = getToken();
         if(tokenT.token == suma || tokenT.token == resta){ 
             if(Expr()){ //Si el token es suma o resta, preguntamos si se puede producir una expresion otra vez    
-                printf("%s ",tokenT.lexema);
+               // printf("%s ",tokenT.lexema);
                 double v1 = pop();
                 double v2 = pop();
                 switch (tokenT.token)
@@ -43,7 +43,7 @@ int Term(void){
         tipoToken tokenT = getToken();
         if(tokenT.token == multiplicacion || tokenT.token == division){
             if(Term()){
-                printf("%s ",tokenT.lexema);
+              //  printf("%s ",tokenT.lexema);
                 double v1 = pop();
                 double v2 = pop();
                 switch (tokenT.token)
@@ -91,7 +91,7 @@ int Pot(void){
 
     if(tokenT.token == seno){
         if(Expr()){
-            printf("%s ",tokenT.lexema);
+            //printf("%s ",tokenT.lexema);
             double v1 = pop();
             push(sin(v1));
             return 1;
@@ -100,7 +100,7 @@ int Pot(void){
     }
     if(tokenT.token == coseno){
         if(Expr()){
-            printf("%s ",tokenT.lexema);
+           // printf("%s ",tokenT.lexema);
             double v1 = pop();
             push(cos(v1));
             return 1;
@@ -110,7 +110,7 @@ int Pot(void){
 
     if(tokenT.token == logaritmo){
         if(Expr()){
-            printf("%s ",tokenT.lexema);
+           // printf("%s ",tokenT.lexema);
             double v1 = pop();
             push(log10(v1));
             return 1;
@@ -120,7 +120,7 @@ int Pot(void){
 
     if(tokenT.token == expo){
         if(Expr()){
-            printf("%s ",tokenT.lexema);
+          //  printf("%s ",tokenT.lexema);
             double v1 = pop();
             push(exp(v1));
             return 1;
@@ -130,7 +130,7 @@ int Pot(void){
 
     if(tokenT.token == resta){
         if(Factor()){ //Deriva en factor?
-          printf("%s ",tokenT.lexema);
+         // printf("%s ",tokenT.lexema);
           push(-pop()); //Simplemente cambiamos el signo y lo volvemos a meter a la pila
           return 1;
         }
@@ -146,18 +146,18 @@ int Pot(void){
         }
     }
     if(tokenT.token == numero){
-        printf("%s ",tokenT.lexema);
+       // printf("%s ",tokenT.lexema);
         push(atof(tokenT.lexema));
         return 1;
     }
 
     if(tokenT.token == pi){
-        printf("3.14 ");
+       // printf("3.14 ");
         push(3.1416);
         return 1;
     }
     if(tokenT.token == e){
-        printf("2.71828 ");
+       // printf("2.71828 ");
         push(2.71828);
         return 1;
     }

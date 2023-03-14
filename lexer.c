@@ -164,7 +164,7 @@ tipoToken getToken(void){
             }
             else{ //s de seno 
                 estadoAnterior = 19;
-                printf("S de seno\n");
+               // printf("S de seno\n");
                 break;
             }
         case 20://n de seno
