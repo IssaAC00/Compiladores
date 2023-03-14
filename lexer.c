@@ -28,7 +28,7 @@ size_t caracteres_leidos = 0;
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	6,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0},
 		{0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	20,	0,	0,	0},
-		{23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23},
+		{23, 23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23,	23},
 																																
 	};																															
 
@@ -102,8 +102,20 @@ tipoToken getToken(void){
             tokenT.token = multiplicacion;
             return tokenT;
         case 15:
-            tokenT.token = e;
-            return tokenT;
+            s = getc(stdin);
+            tokenT.lexema[tokenT.lexemaLen++] = s;
+            tokenT.lexema[tokenT.lexemaLen] = '\0';
+            estado = automata[estado][columna(s)];
+            if (estado == 21){
+                    estadoAnterior= 15;
+                    break;
+            }
+            else{
+                 tokenT.token = e;
+                 return tokenT;
+
+            }
+           
         case 6: //p
             if (estadoAnterior==21){
                 estadoAnterior = 0;
